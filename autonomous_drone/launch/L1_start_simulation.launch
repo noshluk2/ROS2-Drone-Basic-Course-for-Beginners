@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+
+
+ <launch>
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+      <arg name="world_name" value="$(find autonomous_drone)/world/droning.world"/>
+    
+    </include>
+
+<!-- putting robot description file into parameter used by gazebo to spawn -->
+   <param name="robot_description" command="$(find xacro)/xacro --inorder 
+                                          '$(find autonomous_drone)/plugins/bodyNsensors.urdf.xacro'" />
+   
+   <!-- push robot_description to factory and spawn robot in gazebo -->
+   <!-- <node name="spawn_robot" pkg="gazebo_ros" type="spawn_model"  respawn="false" output="screen"
+      args="-urdf -model myquadrotor -param robot_description"/> -->
+
+     
+
+    <!-- to define odometery for our drone -->
+   <node name="ground_truth_to_tf" pkg="message_to_tf" type="message_to_tf" output="screen">
+     <param name="odometry_topic" value="ground_truth/state" />
+     <param name="frame_id" value="nav" />
+   </node>
+
+      <!-- start robot state publisher -->
+   <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" output="screen" >
+     <param name="publish_frequency" type="double" value="50.0" />
+     <param name="tf_prefix" type="string" value="" />
+   </node>
+  
+ </launch>
+   

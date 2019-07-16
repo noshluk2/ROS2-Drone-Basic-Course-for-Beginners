@@ -1,0 +1,32 @@
+! installations !
+ - https://github.com/tu-darmstadt-ros-pkg/hector_quadrotor.git
+ - sudo apt-get install ros-kinetic-hector-*
+ - sudo apt-get install ros-kinetic-hardware-interface
+ - sudo apt-get install ros-kinetic-effort-controllers
+ - sudo apt-get install ros-kinetic-joint-state-controller
+ - sudo apt-get install ros-kinetic-gazebo-ros-control
+ - sudo apt-get install ros-kinetic-tf2-geometry-msgs 
+ - sudo apt-get install ros-kinetic-teleop-twist-keyboard 
+ - sudo apt-get install ros-kinetic-rosbash
+
+
+
+- catkin_create_pkg autonomous_drone rospy std_msgs
+- git clone https://bitbucket.org/theconstructcore/hector_quadrotor_sim.git
+
+
+
+
+!!
+sudo apt-get install ros-kinetic-hector-*
+sudo apt-get install ros-kinetic-ardrone-autonomy
+
+
+
+
+
+run 
+
+rosrun teleop_twist_keyboard teleop_twist_keyboard.py 
+roslaunch cvg_sim_gazebo ardrone_testworld.launch
+rostopic pub /ardrone/takeoff std_msgs/Empty "{}"

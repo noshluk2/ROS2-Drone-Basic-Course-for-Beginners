@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+
+<robot xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
+xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
+xmlns:xacro="http://ros.org/wiki/xacro"> 
+ 
+  <xacro:macro name="hokuyo_utm30lx" params="name parent *origin ros_topic update_rate ray_count min_angle max_angle">
+      <joint name="${name}_joint" type="fixed">
+        <xacro:insert_block name="origin" />
+        <parent link="${parent}"/>
+        <child link="${name}_link"/>
+      </joint>
+  
+  <link name="${name}_link">
+    <inertial>
+      <mass value="0.001" />
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <inertia ixx="0.0001" ixy="0" ixz="0" iyy="0.0001" iyz="0" izz="0.0001" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 -0.0115" rpy="0 0 0" />
+        <geometry>
+          <box size="0.058 0.058 0.087" />
+        </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.058 0.058 0.087" />
+      </geometry>
+    </collision>
+  </link>
+      
+   
+  <gazebo reference="${name}_link">
+      <sensor type="ray" name="${name}">
+        <update_rate>${update_rate}</update_rate>
+          <ray>
+            <scan>
+              <horizontal>
+                <samples>720</samples>
+                <resolution>1</resolution>
+                <min_angle>-1.578</min_angle>
+                <max_angle>1.578</max_angle>
+             </horizontal>
+            </scan>
+            <range>
+              <min>0.1</min>
+              <max>30</max>
+              <resolution>0.1</resolution>
+            </range>
+          </ray>
+        <plugin name="gazebo_ros_${name}_controller" filename="libgazebo_ros_laser.so">
+          <gaussianNoise>0.000</gaussianNoise>
+          <topicName>${ros_topic}</topicName>
+          <frameName>${name}_link</frameName>
+        </plugin>
+      </sensor>
+    </gazebo> 
+      
+      
+    </xacro:macro>
+  </robot>
+  

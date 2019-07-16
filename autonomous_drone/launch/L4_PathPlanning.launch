@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<launch>
+    
+    <!-- adding L3 localization powers to this launch file -->
+
+    <include file="$(find autonomous_drone)/launch/L3_localization.launch" />
+
+    <!-- Movebase and costmaps configuration -> its hard -->
+    <node pkg="move_base" type="move_base" name="move_base" respawn="false" output="screen" >
+        <param name="base_local_planner" value="dwa_local_planner/DWAPlannerROS"/>
+        <rosparam file="$(find autonomous_drone)/resources/costmap_common_params.yaml" command="load" ns="global_costmap" />
+        <rosparam file="$(find autonomous_drone)/resources/costmap_common_params.yaml" command="load" ns="local_costmap" />
+
+        <rosparam file="$(find autonomous_drone)/resources/local_costmap_params.yaml" command="load"/>
+        <rosparam file="$(find autonomous_drone)/resources/global_costmap_params.yaml" command="load"/>
+        
+        <rosparam file="$(find autonomous_drone)/resources/move_base_params.yaml" command="load"/>
+        <rosparam file="$(find autonomous_drone)/resources/dwa_local_planner_params.yaml" command="load"/>
+    
+         <remap from="cmd_vel" to="/cmd_vel"/>
+        <remap from="odom" to="nav"/>
+        <param name="DWAPlannerROS/min_vel_x" value="0.0" if ="false"/>
+    </node>  
+
+</launch>

@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- loading the drone model and simulation setup -->
+    <include file="$(find autonomous_drone)/launch/L1_start_simulation.launch" />
+
+    <!-- Loading the mapp -->
+<node pkg="map_server" name="map_server" type="map_server" args="$(find autonomous_drone)/map/map.yaml"/>
+
+
+    <!-- going to add Adaptive Monto Carlo localization Package -->
+    <node pkg="amcl" type="amcl" name="amcl" >
+        <param name="base_frame_id" value="base_footprint"/>
+        <param name="odom_frame_id" value="nav"/>
+        <param name="use_map_topic" value="false"/>
+        <param name="scan_topic" value="scan"/>
+    </node>
+
+        <!-- Starting the keyboard operation node  -->
+    <node pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" name="teleop_twist_keyboard"/>
+    <!-- Opening the Rviz  -->
+    <node pkg="rviz" type="rviz" name="rviz" />
+
+</launch>

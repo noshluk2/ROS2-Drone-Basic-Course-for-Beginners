@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+
+<robot name="myquadrotor"
+xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
+xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
+xmlns:xacro="http://ros.org/wiki/xacro">
+   
+<xacro:property name="M_PI" value="3.1415926535897931" />
+
+    <!-- Included gazebo simulation plugins and controller -->  
+  <xacro:include filename="$(find autonomous_drone)/plugins/gazebo_sim_plugins.urdf.xacro" />
+  <xacro:include filename="$(find autonomous_drone)/plugins/gazebo_sim_controller.urdf.xacro" />
+
+  <!-- Combining Gazebo Plugins as gazebo_quadrotor_plugins -->
+  <xacro:macro name="gazebo_quadrotor_plugins">
+    <canonicalBody>base_link</canonicalBody>
+    <quadrotor_sensors/>
+    <quadrotor_controller/>
+  </xacro:macro>
+
+  <!-- Main body link -->
+  <xacro:macro name="quadrotor_base_body">
+    <link name="base_link">
+      <inertial>
+        <mass value="1.477" />
+        <origin xyz="0 0 0" />
+        <inertia ixx="0.01152" ixy="0.0" ixz="0.0" iyy="0.01152" iyz="0.0" izz="0.0218" />
+      </inertial>
+
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://autonomous_drone/models/quadrotor_4.dae"/>
+        </geometry>
+      </visual>
+
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://autonomous_drone/models/quadrotor_4.stl"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <gazebo reference="base_link">
+      <turnGravityOff>false</turnGravityOff>
+    </gazebo>
+    <gazebo_quadrotor_plugins/>
+  </xacro:macro>
+    
+    <quadrotor_base_body />
+    
+<!-- //////////////////////// Seperated from main body and generic quadrotor plugins  //////////////////////////-->
+    
+    <!-- Hokuyo Laser sensor gazebo plugin  -->
+
+    <xacro:include filename="$(find autonomous_drone)/sensors/hokuyo_utm30lx.urdf.xacro" />
+    <xacro:hokuyo_utm30lx name="laser" parent="base_link" ros_topic="scan" update_rate="40" ray_count="1081" min_angle="135" max_angle="-135">
+      <origin xyz="0.0 0.0 0.08" rpy="3.14 0 0"/>
+    </xacro:hokuyo_utm30lx>
+    <!-- Hokuyo Laser sensor gazebo plugin  -->
+        <xacro:include filename="$(find autonomous_drone)/sensors/sonar_sensor.urdf.xacro" />
+    <xacro:sonar_sensor name="sonar" parent="base_link" ros_topic="sonar_height" update_rate="10" min_range="0.01" max_range="3.0" field_of_view="${40*M_PI/180}" ray_count="3">
+      <origin xyz="-0.15 0.0 0.0" rpy="0 ${90*M_PI/180} 0"/>
+    </xacro:sonar_sensor>
+
+    
+</robot>
+  

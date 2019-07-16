@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<launch>
+    <include file="$(find autonomous_drone)/launch/L1_start_simulation.launch" />
+
+    <!-- Starting the SLAM node of Gmapping package -->
+
+    <node pkg="gmapping" type="slam_gmapping" name="quadrotor_SLAM" output="screen" >
+        <param name="base_frame" value="base_footprint"/>
+        <param name="odom_frame" value="nav"/>
+        <param name="map_frame" value="map"/>
+        <param name="scan_topic" value="scan"/>
+    </node>
+        <!-- teleop key and rviz -->
+
+        <node pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" name="teleop_twist_keyboard"/>
+        <node pkg="rviz" type="rviz" name="rviz" />
+
+</launch>
