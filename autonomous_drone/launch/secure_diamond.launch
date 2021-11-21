@@ -1,0 +1,7 @@
+<launch>
+  <!-- We resume the logic in empty_world.launch, changing only the name of the world to be launched -->
+  <include file="$(find autonomous_drone)/launch/hector_drone.launch"/>
+  
+  
+  
+  </launch>

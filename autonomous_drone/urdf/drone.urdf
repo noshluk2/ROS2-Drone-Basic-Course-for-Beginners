@@ -1,0 +1,287 @@
+<?xml version="1.0"?>
+
+<robot name="chirya">
+    <link name="base_footprint"/>
+
+    <link name="base">
+         <visual>
+            <geometry>
+                <box size="0.2 0.2 0.1"/>
+            </geometry>
+            <material name="red">
+            <color rgba="1 0 0 1" />
+            </material>
+        </visual>
+
+        <inertial>
+            <mass value="1" />
+            <inertia ixx="0.01" ixy="0.0" ixz="0" 
+            iyy="0.01" iyz="0" izz="0.01" />
+        </inertial>
+        <collision>
+            <geometry>
+                <box size="0.2 0.2 0.1"/>
+            </geometry>
+            <contact_coefficients mu="0" kp="1000.0" kd="1.0"/>
+        </collision>
+    </link>
+    <joint name="base_joint" type="fixed">
+      <parent link="base_footprint"/>
+      <child link="base"/>
+      <origin rpy="0 0 0" xyz="0 0 0.05"/>
+    </joint>
+    
+
+    <link name="front_right_arm">
+        <visual>
+           <geometry>
+               <box size="0.6 0.1 0.05"/>
+           </geometry>
+           <material name="white">
+            <color rgba="1 1 1 1" />
+           </material>
+        </visual>
+        <inertial>
+            <mass value="1" />
+            <inertia ixx="0.01" ixy="0.0" ixz="0" 
+            iyy="0.01" iyz="0" izz="0.01" />
+        </inertial>
+        <collision>
+           <geometry>
+            <box size="0.6 0.1 0.05"/>
+           </geometry>
+           <contact_coefficients mu="0" kp="1000.0" kd="1.0"/>
+        </collision>
+   </link>
+   <joint name="front_right_arm_joint" type="fixed">
+     <parent link="base"/>
+     <child link="front_right_arm"/>
+     <origin rpy="0 0 -0.6" xyz="0.33 -0.25 0"/>
+   </joint>
+  
+   <link name="front_left_arm">
+    <visual>
+       <geometry>
+           <box size="0.6 0.1 0.05"/>
+       </geometry>
+       <material name="white">
+        <color rgba="1 1 1 1" />
+       </material>
+    </visual>
+    <inertial>
+        <mass value="1" />
+        <inertia ixx="0.01" ixy="0.0" ixz="0" 
+        iyy="0.01" iyz="0" izz="0.01" />
+    </inertial>
+    <collision>
+       <geometry>
+        <box size="0.6 0.1 0.05"/>
+       </geometry>
+       <contact_coefficients mu="0" kp="1000.0" kd="1.0"/>
+    </collision>
+</link>
+<joint name="front_left_arm_joint" type="fixed">
+ <parent link="base"/>
+ <child link="front_left_arm"/>
+ <origin rpy="0 0 0.6" xyz="0.33 0.25 0"/>
+</joint>
+
+   
+
+<link name="back_left_arm">
+    <visual>
+       <geometry>
+           <box size="0.6 0.1 0.05"/>
+       </geometry>
+       <material name="white">
+        <color rgba="1 1 1 1" />
+       </material>
+    </visual>
+    <inertial>
+        <mass value="1" />
+        <inertia ixx="0.01" ixy="0.0" ixz="0" 
+        iyy="0.01" iyz="0" izz="0.01" />
+    </inertial>
+    <collision>
+       <geometry>
+        <box size="0.6 0.1 0.05"/>
+       </geometry>
+       <contact_coefficients mu="0" kp="1000.0" kd="1.0"/>
+    </collision>
+</link>
+<joint name="back_left_arm_joint" type="fixed">
+ <parent link="base"/>
+ <child link="back_left_arm"/>
+ <origin rpy="0 0 -0.6" xyz="-0.33 0.25 0"/>
+</joint>
+
+
+<link name="back_right_arm">
+    <visual>
+       <geometry>
+           <box size="0.6 0.1 0.05"/>
+       </geometry>
+       <material name="white">
+        <color rgba="1 1 1 1" />
+       </material>
+    </visual>
+    <inertial>
+        <mass value="1" />
+        <inertia ixx="0.01" ixy="0.0" ixz="0" 
+        iyy="0.01" iyz="0" izz="0.01" />
+    </inertial>
+    <collision>
+       <geometry>
+        <box size="0.6 0.1 0.05"/>
+       </geometry>
+       <contact_coefficients mu="0" kp="1000.0" kd="1.0"/>
+    </collision>
+</link>
+<joint name="back_right_arm_joint" type="fixed">
+ <parent link="base"/>
+ <child link="back_right_arm"/>
+ <origin rpy="0 0 0.6" xyz="-0.33 -0.25 0"/>
+</joint>
+
+<!-- wings -->
+
+<link name="back_right_porpeller">
+    <visual>
+       <geometry>
+           <box size="0.4 0.05 0.02"/>
+       </geometry>
+       <material name="black">
+        <color rgba="0 0 0 1" />
+       </material>
+    </visual>
+    <inertial>
+        <mass value="1" />
+        <inertia ixx="0.01" ixy="0.0" ixz="0" 
+        iyy="0.01" iyz="0" izz="0.01" />
+    </inertial>
+    <collision>
+       <geometry>
+        <box size="0.4 0.05 0.02"/>
+       </geometry>
+       <contact_coefficients mu="0" kp="1000.0" kd="1.0"/>
+    </collision>
+</link>
+<joint name="back_right_porpeller_joint" type="fixed">
+ <parent link="back_right_arm"/>
+ <child link="back_right_porpeller"/>
+ <origin rpy="0 0 1.57" xyz="-0.25 0 0.05"/>
+</joint>
+
+
+<link name="back_left_porpeller">
+    <visual>
+       <geometry>
+           <box size="0.4 0.05 0.02"/>
+       </geometry>
+       <material name="black">
+        <color rgba="0 0 0 1" />
+       </material>
+    </visual>
+    <inertial>
+        <mass value="1" />
+        <inertia ixx="0.01" ixy="0.0" ixz="0" 
+        iyy="0.01" iyz="0" izz="0.01" />
+    </inertial>
+    <collision>
+       <geometry>
+        <box size="0.4 0.05 0.02"/>
+       </geometry>
+       <contact_coefficients mu="0" kp="1000.0" kd="1.0"/>
+    </collision>
+</link>
+<joint name="back_left_porpeller_joint" type="fixed">
+ <parent link="back_left_arm"/>
+ <child link="back_left_porpeller"/>
+ <origin rpy="0 0 1.57" xyz="-0.25 0 0.05"/>
+</joint>
+
+
+
+<link name="front_left_porpeller">
+    <visual>
+       <geometry>
+           <box size="0.4 0.05 0.02"/>
+       </geometry>
+       <material name="black">
+        <color rgba="0 0 0 1" />
+       </material>
+    </visual>
+    <inertial>
+        <mass value="1" />
+        <inertia ixx="0.01" ixy="0.0" ixz="0" 
+        iyy="0.01" iyz="0" izz="0.01" />
+    </inertial>
+    <collision>
+       <geometry>
+        <box size="0.4 0.05 0.02"/>
+       </geometry>
+       <contact_coefficients mu="0" kp="1000.0" kd="1.0"/>
+    </collision>
+</link>
+<joint name="front_left_porpeller_joint" type="fixed">
+ <parent link="front_left_arm"/>
+ <child link="front_left_porpeller"/>
+ <origin rpy="0 0 1.57" xyz="0.25 0 0.05"/>
+</joint>
+
+
+<link name="front_right_porpeller">
+    <visual>
+       <geometry>
+           <box size="0.4 0.05 0.02"/>
+       </geometry>
+       <material name="black">
+        <color rgba="0 0 0 1" />
+       </material>
+    </visual>
+    <inertial>
+        <mass value="1" />
+        <inertia ixx="0.01" ixy="0.0" ixz="0" 
+        iyy="0.01" iyz="0" izz="0.01" />
+    </inertial>
+    <collision>
+       <geometry>
+        <box size="0.4 0.05 0.02"/>
+       </geometry>
+       <contact_coefficients mu="0" kp="1000.0" kd="1.0"/>
+    </collision>
+</link>
+<joint name="front_right_porpeller" type="fixed">
+ <parent link="front_right_arm"/>
+ <child link="front_right_porpeller"/>
+ <origin rpy="0 0 1.57" xyz="0.25 0 0.05"/>
+</joint>
+
+<gazebo reference="front_right_arm">
+    <material>Gazebo/Orange</material>
+</gazebo>
+<gazebo reference="front_right_porpeller">
+    <material>Gazebo/Black</material>
+</gazebo>
+<gazebo reference="front_left_arm">
+    <material>Gazebo/Orange</material>
+</gazebo>
+<gazebo reference="front_left_porpeller">
+    <material>Gazebo/Black</material>
+</gazebo>
+<gazebo reference="back_right_arm">
+    <material>Gazebo/Orange</material>
+</gazebo>
+<gazebo reference="back_right_porpeller">
+    <material>Gazebo/Black</material>
+</gazebo>
+<gazebo reference="back_left_arm">
+    <material>Gazebo/Orange</material>
+</gazebo>
+<gazebo reference="back_left_porpeller">
+    <material>Gazebo/Black</material>
+</gazebo>
+  
+ 
+      
+  </robot>

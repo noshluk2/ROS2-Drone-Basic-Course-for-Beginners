@@ -1,0 +1,7 @@
+<launch>
+  <!-- We resume the logic in empty_world.launch, changing only the name of the world to be launched -->
+  <include file="$(find autonomous_drone)/launch/hector_drone.launch"/>
+  <node name="Fly_drone" pkg="autonomous_drone" type="a_fly_drone.py" output="screen"/>
+  <node name="Circular_video_record" pkg="autonomous_drone" type="d_secure_the_diamond.py" output="screen"/>
+  
+  </launch>
