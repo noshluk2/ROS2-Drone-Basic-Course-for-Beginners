@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+
+<launch>
+
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="use_sim_time" value="true"/>
+    <arg name="gui" value="true"/>
+    <arg name="world_name" value="$(find drone_basic)/worlds/maze.world"/> 
+  </include>
+  
+
+
+   <include file="$(find hector_quadrotor_gazebo)/launch/spawn_quadrotor.launch">
+     <arg name="name" default="chirya"/>
+     <arg name="x" default="5.2"/>
+     <arg name="y" default="-0.6"/>
+     <arg name="z" default="0.0"/>
+     <arg name="model" value="$(find drone_basic)/urdf/hector_camera_laser.urdf.xacro"/>
+   </include>
+
+</launch>

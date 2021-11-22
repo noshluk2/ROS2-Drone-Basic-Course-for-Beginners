@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+
+<robot name="quadrotor" xmlns:xacro="http://www.ros.org/wiki/xacro">
+   
+    <xacro:property name="M_PI" value="3.1415926535897931" />
+    <xacro:include filename="$(find drone_basic)/urdf/quadrotor_base.urdf.xacro" />
+    <xacro:quadrotor_base_macro />
+
+    <xacro:include filename="$(find drone_basic)/sensors/hokuyo_utm30lx.urdf.xacro" />
+    <xacro:hokuyo_utm30lx name="laser0" parent="base_link" ros_topic="scan" update_rate="40" 
+                          ray_count="18" min_angle="-90" max_angle="90">
+      <origin xyz="0.0 0.0 -0.097" rpy="${M_PI} 0 0"/>
+    </xacro:hokuyo_utm30lx>
+<!-- 
+    <xacro:include filename="$(find drone_basic)/sensors/hokuyo_utm30lx.urdf.xacro" />
+    <xacro:hokuyo_utm30lx name="laser0" parent="base_link" ros_topic="scan" update_rate="40" 
+                          ray_count="18" min_angle="-90" max_angle="90">
+      <origin xyz="0.0 0.0 -0.097" rpy="${M_PI} 0 0"/>
+    </xacro:hokuyo_utm30lx> -->
+    
+    <xacro:include filename="$(find drone_basic)/sensors/generic_camera.urdf.xacro" />
+    <xacro:generic_camera name="front_cam" parent="base_link" ros_topic="camera/image"  
+                          cam_info_topic="camera/camera_info" update_rate="10" res_x="640" res_y="480" 
+                          image_format="R8G8B8" hfov="90">
+      <origin xyz="0.05 0.5 -0.06" rpy="0 0 3.14"/>
+    </xacro:generic_camera>
+
+    <xacro:include filename="$(find hector_quadrotor_gazebo)/urdf/quadrotor_plugins.gazebo.xacro" />
+
+</robot>
+  

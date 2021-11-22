@@ -1,0 +1,27 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "",
+        "limitSymbolsToIncludedHeaders": true
+      },
+      "includePath": [
+        "/home/luqman/drone_ws/devel/include/**",
+        "/opt/ros/noetic/include/**",
+        "/home/luqman/drone_ws/src/hector_quadrotor_noetic/hector_gazebo/hector_gazebo_plugins/include/**",
+        "/home/luqman/drone_ws/src/hector_quadrotor_noetic/hector_gazebo/hector_gazebo_thermal_camera/include/**",
+        "/home/luqman/drone_ws/src/hector_quadrotor_noetic/hector_localization/hector_pose_estimation/include/**",
+        "/home/luqman/drone_ws/src/hector_quadrotor_noetic/hector_localization/hector_pose_estimation_core/include/**",
+        "/home/luqman/drone_ws/src/hector_quadrotor_noetic/hector_quadrotor/hector_quadrotor_controller/include/**",
+        "/home/luqman/drone_ws/src/hector_quadrotor_noetic/hector_quadrotor/hector_quadrotor_controller_gazebo/include/**",
+        "/home/luqman/drone_ws/src/hector_quadrotor_noetic/hector_quadrotor/hector_quadrotor_gazebo_plugins/include/**",
+        "/home/luqman/drone_ws/src/hector_quadrotor_noetic/hector_quadrotor/hector_quadrotor_model/include/**",
+        "/home/luqman/drone_ws/src/hector_quadrotor_noetic/hector_quadrotor/hector_quadrotor_pose_estimation/include/**",
+        "/home/luqman/drone_ws/src/hector_quadrotor_noetic/hector_quadrotor/hector_uav_msgs/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS"
+    }
+  ],
+  "version": 4
+}
