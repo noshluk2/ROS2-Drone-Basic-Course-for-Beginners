@@ -15,10 +15,10 @@
 </details>
 
 ## About this Repository
-ROS1 Noetic is the main framework we will be using in this course , Turtlesim package , TurtleBot3 and our Custom Robot Dolly is what we are going to create add sensors to these robots and write algorithms to avoid obstacles in simulation of Gaebo
+Hector Drone and  its sensors is what we are going to interface our python Nodes with and write algorithms to avoid obstacles and secure diamonds in simulation of Gaebzo .OpenCV library for python is going to be used for the Last project and you will learn how to perform computer vision algorithms with ROS .
 
-<!-- - ![alt text](https://github.com/noshluk2/ROS-Ultimate-Guide-for-Beginners-with-TurtleBot3-and-Robot/blob/main/Images/mainCover.png)
-- **[[Get course Here]](https://www.udemy.com/course/the-ultimate-guide-to-ros-simulate-your-robots/?couponCode=WP_STUDENTS_)** -->
+- ![alt text](https://github.com/noshluk2/ROS-Drone-Basic-Course-for-Beginners/blob/master/Images/drone.png)
+- **[[Get course Here]](https://www.udemy.com/course/robotics-with-ros-autonomous-drone-with-path-planning-slam/?couponCode=GITHUB)**
 ----
 ## Using this Repository
 * Ubuntu 20.04 and ROS1-Noetic should be installed 
@@ -30,6 +30,9 @@ ROS1 Noetic is the main framework we will be using in this course , Turtlesim pa
 * Clone the repository in your workspace
 ```
 git clone https://github.com/noshluk2/ROS-Drone-Basic-Course-for-Beginners
+```
+```
+git clone https://github.com/RAFALAMAO/hector_quadrotor_noetic
 ```
 
 
@@ -52,26 +55,22 @@ echo "source /path/to/catkin_ws/devel/setup.bash" >> ~/.bashrc
 
 ----
 ## Course Workflow
-<!-- - We will get some basics of ROS1 with the help of in-built ROS1 package **TurtleSim** . Then we will move toward very useful concepts which are nodes , package, topic -> Publishing/Subscribing
+This course is going to utilize Hector drone package containing a drone with multiple sensors. We will start with creating custom launch files which will bring all required files into our custom package. Sensors integration to robot model with xacro files .We will then perform multiple tasks to learn how ROS can help in learning drone robotics
 
-- We will deep dive into a **TurtleBot3** robot package and understand how it is built and how we can manipulate it .
+Custom World Files will be created to represent projects , and complete workflow of our projects will be explained .
 
-- This will lead us towards creation of our new package **Dolly** which is a car that we will be creating from scratch using URDF xml syntax . Next we will create its Gazebo and RVIZ1 3D simulator . Then we will add Differential Drive Plugin in our robot and drive it .
-
-With these simulators endless possibilities of projects will open by adding the virtual sensors to your Robot. -->
+OpenCV library for python is going to be used for the Last project and you will learn how to perform computer vision algorithms with ROS 
 
 
 ---
 ## Features
-<!-- * **TurtleSim Circle Movement** 
-  -  ![alt text](https://github.com/noshluk2/ROS-Ultimate-Guide-for-Beginners-with-TurtleBot3-and-Robot/blob/main/Images/turtleSim_circle.gif)
-* **Turtlebot 3 Object Irrirational Robot** 
-  -  ![alt text](https://github.com/noshluk2/ROS-Ultimate-Guide-for-Beginners-with-TurtleBot3-and-Robot/blob/main/Images/tb3_irritated.gif)
-* **Building Custom Robot** 
-  -  ![alt text](https://github.com/noshluk2/ROS-Ultimate-Guide-for-Beginners-with-TurtleBot3-and-Robot/blob/main/Images/building_dolly.gif)
-* **Obstacle Avoiding Robot**
-  - ![alt text](https://github.com/noshluk2/ROS-Ultimate-Guide-for-Beginners-with-TurtleBot3-and-Robot/blob/main/Images/dolly_OA.gif)
-*  -->
+* **Flying through Sensor data manipulation** 
+  -  ![alt text](https://github.com/noshluk2/ROS-Drone-Basic-Course-for-Beginners/blob/master/Images/hector_drone.gif)
+* **Making Obstacle Avoiding Drone** 
+  -  ![alt text](https://github.com/noshluk2/ROS-Drone-Basic-Course-for-Beginners/blob/master/Images/obstacle_avoiding.gif)
+* **Diamond Securing Drone Surveillance** 
+  -  ![alt text](https://github.com/noshluk2/ROS-Drone-Basic-Course-for-Beginners/blob/master/Images/diamond_secure.gif)
+* 
 
 
 ----
@@ -82,9 +81,8 @@ With these simulators endless possibilities of projects will open by adding the 
 * ROS1 - Noetic
 ---
 ## Link to the Course
-<!-- - ![alt text](https://github.com/HaiderAbasi/SelfDrivingProject_MiniTesla/blob/master/3D%20model%20file/Tesla%20Self%20Driving%20Car.png) -->
 
-<!-- **[[Get course HERE]](https://www.udemy.com/course/the-ultimate-guide-to-ros-simulate-your-robots/?couponCode=WP_STUDENTS_)** -->
+- **[[Get Discounted Coupon Here]](https://www.udemy.com/course/robotics-with-ros-autonomous-drone-with-path-planning-slam/?couponCode=GITHUB)**
 
 ----
 ## Notes
