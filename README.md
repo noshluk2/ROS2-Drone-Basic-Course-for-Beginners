@@ -18,7 +18,7 @@
 Hector Drone and  its sensors is what we are going to interface our python Nodes with and write algorithms to avoid obstacles and secure diamonds in simulation of Gaebzo .OpenCV library for python is going to be used for the Last project and you will learn how to perform computer vision algorithms with ROS .
 
 - ![alt text](https://github.com/noshluk2/ROS-Drone-Basic-Course-for-Beginners/blob/master/Images/drone.png)
-- **[[Get course Here]](https://www.udemy.com/course/robotics-with-ros-autonomous-drone-with-path-planning-slam/?couponCode=GITHUB)**
+- **[[Get course Here]](https://www.udemy.com/course/robotics-with-ros-autonomous-drone-with-path-planning-slam/?couponCode=APRIL_END)**
 ----
 ## Using this Repository
 * Ubuntu 20.04 and ROS1-Noetic should be installed 
@@ -82,7 +82,7 @@ OpenCV library for python is going to be used for the Last project and you will 
 ---
 ## Link to the Course
 
-- **[[Get Discounted Coupon Here]](https://www.udemy.com/course/robotics-with-ros-autonomous-drone-with-path-planning-slam/?couponCode=GITHUB)**
+- **[[Get Discounted Coupon Here]](https://www.udemy.com/course/robotics-with-ros-autonomous-drone-with-path-planning-slam/?couponCode=APRIL_END)**
 
 ----
 ## Notes
