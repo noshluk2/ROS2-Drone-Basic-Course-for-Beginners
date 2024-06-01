@@ -1,0 +1,3 @@
+[submodule "sjtu_drone"]
+	path = sjtu_drone
+	url = https://github.com/noshluk2/sjtu_drone.git
